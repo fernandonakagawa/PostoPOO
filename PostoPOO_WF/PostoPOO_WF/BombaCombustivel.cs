@@ -9,7 +9,7 @@ namespace PostoPOO
         Gasolina,
         Etanol
     }
-    class BombaCombustivel
+    public class BombaCombustivel
     {
         private int _numero;
         private TipoCombustivel _tipo;

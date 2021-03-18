@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PostoPOO
 {
-    class PostoCombustivel
+    public class PostoCombustivel
     {
         private string _nome;
         private List<BombaCombustivel> _bombas;
@@ -15,8 +15,20 @@ namespace PostoPOO
         public string Nome { get => _nome; private set => _nome = value; }
         public List<BombaCombustivel> Bombas { get => _bombas; private set => _bombas = value; }
         public List<Abastecimento> Abastecimentos { get => _abastecimentos; private set => _abastecimentos = value; }
-        public float PrecoGasolina { get => _precoGasolina; set => _precoGasolina = value; }
-        public float PrecoEtanol { get => _precoEtanol; set => _precoEtanol = value; }
+        public float PrecoGasolina { get => _precoGasolina; 
+            set
+            {
+                if (value < 0) value = 0;
+                _precoGasolina = value;
+            }
+        }
+        public float PrecoEtanol { get => _precoEtanol;
+            set
+            {
+                if (value < 0) value = 0;
+                _precoEtanol = value; 
+            } 
+        }
 
         public PostoCombustivel(string nome, TipoCombustivel[] tiposBombas, float precoGasolina, float precoEtanol)
         {

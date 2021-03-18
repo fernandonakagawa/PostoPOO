@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PostoPOO
 {
-    class Abastecimento
+    public class Abastecimento
     {
         private BombaCombustivel _bomba;
         private float _quantidade;
