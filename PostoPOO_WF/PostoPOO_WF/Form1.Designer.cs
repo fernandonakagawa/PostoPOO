@@ -36,24 +36,24 @@ namespace PostoPOO_WF
             this.tbPrecoEtanol = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbBombas = new System.Windows.Forms.GroupBox();
-            this.btAplicarPrecos = new System.Windows.Forms.Button();
-            this.btModificar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbTipoCombustivel = new System.Windows.Forms.ComboBox();
-            this.nudNumero = new System.Windows.Forms.NumericUpDown();
-            this.nudCapacidade = new System.Windows.Forms.NumericUpDown();
-            this.btAdicionarBomba = new System.Windows.Forms.Button();
-            this.lvBombas = new System.Windows.Forms.ListView();
             this.btRemoverBomba = new System.Windows.Forms.Button();
+            this.lvBombas = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btAdicionarBomba = new System.Windows.Forms.Button();
+            this.nudCapacidade = new System.Windows.Forms.NumericUpDown();
+            this.nudNumero = new System.Windows.Forms.NumericUpDown();
+            this.cbTipoCombustivel = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btAplicarPrecos = new System.Windows.Forms.Button();
+            this.btModificar = new System.Windows.Forms.Button();
             this.btCriarPosto = new System.Windows.Forms.Button();
             this.gbBombas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,87 +125,59 @@ namespace PostoPOO_WF
             this.gbBombas.TabStop = false;
             this.gbBombas.Text = "Bombas";
             // 
-            // btAplicarPrecos
+            // btRemoverBomba
             // 
-            this.btAplicarPrecos.Location = new System.Drawing.Point(158, 163);
-            this.btAplicarPrecos.Name = "btAplicarPrecos";
-            this.btAplicarPrecos.Size = new System.Drawing.Size(102, 23);
-            this.btAplicarPrecos.TabIndex = 7;
-            this.btAplicarPrecos.Text = "Aplicar Preços";
-            this.btAplicarPrecos.UseVisualStyleBackColor = true;
-            this.btAplicarPrecos.Click += new System.EventHandler(this.btAplicarPrecos_Click);
+            this.btRemoverBomba.Enabled = false;
+            this.btRemoverBomba.Location = new System.Drawing.Point(6, 328);
+            this.btRemoverBomba.Name = "btRemoverBomba";
+            this.btRemoverBomba.Size = new System.Drawing.Size(102, 23);
+            this.btRemoverBomba.TabIndex = 16;
+            this.btRemoverBomba.Text = "Remover Bomba";
+            this.btRemoverBomba.UseVisualStyleBackColor = true;
+            this.btRemoverBomba.Click += new System.EventHandler(this.btRemoverBomba_Click);
             // 
-            // btModificar
+            // lvBombas
             // 
-            this.btModificar.Enabled = false;
-            this.btModificar.Location = new System.Drawing.Point(281, 163);
-            this.btModificar.Name = "btModificar";
-            this.btModificar.Size = new System.Drawing.Size(102, 23);
-            this.btModificar.TabIndex = 8;
-            this.btModificar.Text = "Modificar Preços";
-            this.btModificar.UseVisualStyleBackColor = true;
-            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
+            this.lvBombas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvBombas.FullRowSelect = true;
+            this.lvBombas.GridLines = true;
+            this.lvBombas.HideSelection = false;
+            this.lvBombas.Location = new System.Drawing.Point(7, 170);
+            this.lvBombas.Name = "lvBombas";
+            this.lvBombas.Size = new System.Drawing.Size(452, 156);
+            this.lvBombas.TabIndex = 15;
+            this.lvBombas.UseCompatibleStateImageBehavior = false;
+            this.lvBombas.View = System.Windows.Forms.View.Details;
+            this.lvBombas.ItemActivate += new System.EventHandler(this.lvBombas_ItemActivate);
+            this.lvBombas.SelectedIndexChanged += new System.EventHandler(this.lvBombas_SelectedIndexChanged);
+            this.lvBombas.Leave += new System.EventHandler(this.lvBombas_Leave);
             // 
-            // label4
+            // columnHeader1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 108);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Tipo de Combustível:";
+            this.columnHeader1.Text = "Número";
             // 
-            // label5
+            // columnHeader2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Número";
+            this.columnHeader2.Text = "Capacidade";
+            this.columnHeader2.Width = 81;
             // 
-            // label6
+            // columnHeader3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 67);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Capacidade:";
+            this.columnHeader3.Text = "Tipo de Combustível";
+            this.columnHeader3.Width = 303;
             // 
-            // cbTipoCombustivel
+            // btAdicionarBomba
             // 
-            this.cbTipoCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTipoCombustivel.FormattingEnabled = true;
-            this.cbTipoCombustivel.Items.AddRange(new object[] {
-            "Gasolina",
-            "Etanol"});
-            this.cbTipoCombustivel.Location = new System.Drawing.Point(131, 105);
-            this.cbTipoCombustivel.Name = "cbTipoCombustivel";
-            this.cbTipoCombustivel.Size = new System.Drawing.Size(121, 21);
-            this.cbTipoCombustivel.TabIndex = 12;
-            // 
-            // nudNumero
-            // 
-            this.nudNumero.Location = new System.Drawing.Point(132, 26);
-            this.nudNumero.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.nudNumero.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudNumero.Name = "nudNumero";
-            this.nudNumero.Size = new System.Drawing.Size(120, 20);
-            this.nudNumero.TabIndex = 13;
-            this.nudNumero.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.btAdicionarBomba.Location = new System.Drawing.Point(132, 141);
+            this.btAdicionarBomba.Name = "btAdicionarBomba";
+            this.btAdicionarBomba.Size = new System.Drawing.Size(102, 23);
+            this.btAdicionarBomba.TabIndex = 9;
+            this.btAdicionarBomba.Text = "Adicionar Bomba";
+            this.btAdicionarBomba.UseVisualStyleBackColor = true;
+            this.btAdicionarBomba.Click += new System.EventHandler(this.btAdicionarBomba_Click);
             // 
             // nudCapacidade
             // 
@@ -230,59 +202,87 @@ namespace PostoPOO_WF
             0,
             0});
             // 
-            // btAdicionarBomba
+            // nudNumero
             // 
-            this.btAdicionarBomba.Location = new System.Drawing.Point(132, 141);
-            this.btAdicionarBomba.Name = "btAdicionarBomba";
-            this.btAdicionarBomba.Size = new System.Drawing.Size(102, 23);
-            this.btAdicionarBomba.TabIndex = 9;
-            this.btAdicionarBomba.Text = "Adicionar Bomba";
-            this.btAdicionarBomba.UseVisualStyleBackColor = true;
-            this.btAdicionarBomba.Click += new System.EventHandler(this.btAdicionarBomba_Click);
+            this.nudNumero.Location = new System.Drawing.Point(132, 26);
+            this.nudNumero.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudNumero.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNumero.Name = "nudNumero";
+            this.nudNumero.Size = new System.Drawing.Size(120, 20);
+            this.nudNumero.TabIndex = 13;
+            this.nudNumero.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // lvBombas
+            // cbTipoCombustivel
             // 
-            this.lvBombas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lvBombas.FullRowSelect = true;
-            this.lvBombas.GridLines = true;
-            this.lvBombas.HideSelection = false;
-            this.lvBombas.Location = new System.Drawing.Point(7, 170);
-            this.lvBombas.Name = "lvBombas";
-            this.lvBombas.Size = new System.Drawing.Size(452, 156);
-            this.lvBombas.TabIndex = 15;
-            this.lvBombas.UseCompatibleStateImageBehavior = false;
-            this.lvBombas.View = System.Windows.Forms.View.Details;
-            this.lvBombas.ItemActivate += new System.EventHandler(this.lvBombas_ItemActivate);
-            this.lvBombas.SelectedIndexChanged += new System.EventHandler(this.lvBombas_SelectedIndexChanged);
-            this.lvBombas.Leave += new System.EventHandler(this.lvBombas_Leave);
+            this.cbTipoCombustivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoCombustivel.FormattingEnabled = true;
+            this.cbTipoCombustivel.Items.AddRange(new object[] {
+            "Gasolina",
+            "Etanol"});
+            this.cbTipoCombustivel.Location = new System.Drawing.Point(131, 105);
+            this.cbTipoCombustivel.Name = "cbTipoCombustivel";
+            this.cbTipoCombustivel.Size = new System.Drawing.Size(121, 21);
+            this.cbTipoCombustivel.TabIndex = 12;
             // 
-            // btRemoverBomba
+            // label6
             // 
-            this.btRemoverBomba.Enabled = false;
-            this.btRemoverBomba.Location = new System.Drawing.Point(6, 328);
-            this.btRemoverBomba.Name = "btRemoverBomba";
-            this.btRemoverBomba.Size = new System.Drawing.Size(102, 23);
-            this.btRemoverBomba.TabIndex = 16;
-            this.btRemoverBomba.Text = "Remover Bomba";
-            this.btRemoverBomba.UseVisualStyleBackColor = true;
-            this.btRemoverBomba.Click += new System.EventHandler(this.btRemoverBomba_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 67);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Capacidade:";
             // 
-            // columnHeader1
+            // label5
             // 
-            this.columnHeader1.Text = "Número";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Número";
             // 
-            // columnHeader2
+            // label4
             // 
-            this.columnHeader2.Text = "Capacidade";
-            this.columnHeader2.Width = 81;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Tipo de Combustível:";
             // 
-            // columnHeader3
+            // btAplicarPrecos
             // 
-            this.columnHeader3.Text = "Tipo de Combustível";
-            this.columnHeader3.Width = 303;
+            this.btAplicarPrecos.Location = new System.Drawing.Point(158, 163);
+            this.btAplicarPrecos.Name = "btAplicarPrecos";
+            this.btAplicarPrecos.Size = new System.Drawing.Size(102, 23);
+            this.btAplicarPrecos.TabIndex = 7;
+            this.btAplicarPrecos.Text = "Aplicar Preços";
+            this.btAplicarPrecos.UseVisualStyleBackColor = true;
+            this.btAplicarPrecos.Click += new System.EventHandler(this.btAplicarPrecos_Click);
+            // 
+            // btModificar
+            // 
+            this.btModificar.Enabled = false;
+            this.btModificar.Location = new System.Drawing.Point(281, 163);
+            this.btModificar.Name = "btModificar";
+            this.btModificar.Size = new System.Drawing.Size(102, 23);
+            this.btModificar.TabIndex = 8;
+            this.btModificar.Text = "Modificar Preços";
+            this.btModificar.UseVisualStyleBackColor = true;
+            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
             // btCriarPosto
             // 
@@ -313,8 +313,8 @@ namespace PostoPOO_WF
             this.Text = "Gerenciamento do Posto";
             this.gbBombas.ResumeLayout(false);
             this.gbBombas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCapacidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,6 +13,8 @@ namespace PostoPOO_WF
 {
     public partial class FormGerenciamentoPosto : Form
     {
+        PostoCombustivel posto;
+        List<BombaCombustivel> bombas;
         public FormGerenciamentoPosto()
         {
             InitializeComponent();
@@ -59,10 +61,27 @@ namespace PostoPOO_WF
                 float capacidade = (float)nudCapacidade.Value;
                 string tipoCombustivel = cbTipoCombustivel.Text;
 
-                ListViewItem listViewItem = new ListViewItem(numero.ToString());
-                listViewItem.SubItems.Add(capacidade.ToString());
-                listViewItem.SubItems.Add(tipoCombustivel);
-                lvBombas.Items.Add(listViewItem);
+                bool numeroExistente = false;
+                foreach(ListViewItem item in lvBombas.Items)
+                {
+                    if(int.Parse(item.Text) == numero)
+                    {
+                        numeroExistente = true;
+                        break;
+                    }
+                }
+                if (numeroExistente)
+                {
+                    MessageBox.Show("Número de bomba já existente!");
+                }
+                else
+                {
+                    ListViewItem listViewItem = new ListViewItem(numero.ToString());
+                    listViewItem.SubItems.Add(capacidade.ToString());
+                    listViewItem.SubItems.Add(tipoCombustivel);
+                    lvBombas.Items.Add(listViewItem);
+                    nudNumero.Value++;
+                }
             }
         }
 
@@ -119,7 +138,28 @@ namespace PostoPOO_WF
             }
             if(nomePosto && precos && bombas)
             {
-                FormPainelDeControle formPainelDeControle = new FormPainelDeControle(this);
+                if(posto == null || bombas == null)
+                {
+                    string nome = tbNomePosto.Text;
+                    this.bombas = new List<BombaCombustivel>();
+                    float precoGasolina = float.Parse(tbPrecoGasolina.Text);
+                    float precoEtanol = float.Parse(tbPrecoEtanol.Text);
+                    foreach (ListViewItem item in lvBombas.Items)
+                    {
+                        int num = int.Parse(item.Text);
+                        float capacidade = float.Parse(item.SubItems[1].Text);
+                        string sTipo = item.SubItems[2].Text;
+                        TipoCombustivel tipo;
+                        if (sTipo.Equals("Gasolina")) tipo = TipoCombustivel.Gasolina;
+                        else tipo = TipoCombustivel.Etanol;
+                        BombaCombustivel b = new BombaCombustivel(num, tipo, capacidade);
+                        this.bombas.Add(b);
+                    }
+
+                    this.posto = new PostoCombustivel(nome, this.bombas, precoGasolina, precoEtanol);
+                }
+
+                FormPainelDeControle formPainelDeControle = new FormPainelDeControle(this, this.posto);
                 formPainelDeControle.Show();
                 this.Hide();
             }

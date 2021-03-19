@@ -30,7 +30,8 @@ namespace PostoPOO
             } 
         }
 
-        public PostoCombustivel(string nome, TipoCombustivel[] tiposBombas, float precoGasolina, float precoEtanol)
+        public PostoCombustivel(string nome, TipoCombustivel[] tiposBombas, 
+            float precoGasolina, float precoEtanol)
         {
             Nome = nome;
             int num = 1;
@@ -40,6 +41,16 @@ namespace PostoPOO
                 BombaCombustivel b = new BombaCombustivel(num++, tipo, 100f);
                 Bombas.Add(b);
             }
+            Abastecimentos = new List<Abastecimento>();
+            PrecoGasolina = precoGasolina;
+            PrecoEtanol = precoEtanol;
+        }
+
+        public PostoCombustivel(string nome, List<BombaCombustivel> bombas,
+            float precoGasolina, float precoEtanol)
+        {
+            Nome = nome;
+            Bombas = bombas;
             Abastecimentos = new List<Abastecimento>();
             PrecoGasolina = precoGasolina;
             PrecoEtanol = precoEtanol;
